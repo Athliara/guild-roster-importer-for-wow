@@ -3,7 +3,7 @@
  * Plugin Name: Guild Roster Importer for WoW
  * Plugin URI: https://a-wd.eu/
  * Description: Displays a World of Warcraft guild roster and character profiles on WordPress using the Blizzard Battle.net API.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Athlios
  * Author URI: https://a-wd.eu
  * Requires at least: 6.9
@@ -33,7 +33,6 @@ require_once GUILROIM_PLUGIN_DIR . 'includes/class-wow-guild-roster-plugin.php';
 
 register_activation_hook(GUILROIM_PLUGIN_FILE, array('WoW_Guild_Roster_Plugin', 'activate'));
 register_deactivation_hook(GUILROIM_PLUGIN_FILE, array('WoW_Guild_Roster_Plugin', 'deactivate'));
-
 
 
 

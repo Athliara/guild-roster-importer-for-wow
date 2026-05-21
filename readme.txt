@@ -2,9 +2,9 @@
 Contributors: athlios
 Tags: guild, roster, battle.net, blizzard, gaming
 Requires at least: 6.9
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +75,9 @@ The plugin does not load third-party tooltip scripts, remote CSS, remote JavaScr
 3. Character profile page with equipment and progression panels.
 
 == Changelog ==
+= 1.0.5 =
+- Updated plugin metadata for WordPress 7.0 compatibility.
+
 = 1.0.4 =
 - Localized presentation assets and removed third-party tooltip/media loading from the plugin output.
 - Updated WordPress.org prefixes for stored data, actions, script handles, and the public shortcode.
