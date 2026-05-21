@@ -1,0 +1,9 @@
+*.zip
+*.log
+*.tmp
+*.bak
+*.orig
+.DS_Store
+Thumbs.db
+.svn/
+node_modules/
