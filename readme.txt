@@ -1,10 +1,11 @@
 ﻿=== Guild Roster Importer for WoW ===
 Contributors: athlios
+Donate Link: https://www.paypal.com/paypalme/athlios
 Tags: guild, roster, battle.net, blizzard, gaming
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +76,13 @@ The plugin does not load third-party tooltip scripts, remote CSS, remote JavaScr
 3. Character profile page with equipment and progression panels.
 
 == Changelog ==
+= 1.0.6 =
+- Added WordPress.org donate metadata.
+- Reduced bundled asset weight by converting talent icons, profile backgrounds, and zone images to smaller local WebP assets.
+- Standardized bundled zone images to 600x300.
+- Added missing Flawless Versatile gem icons for character profile equipment sockets.
+- Updated local profile asset resolution to prefer optimized bundled assets.
+
 = 1.0.5 =
 - Updated plugin metadata for WordPress 7.0 compatibility.
 

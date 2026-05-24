@@ -2525,9 +2525,9 @@ class WoW_Guild_Roster_Character_Page
             return '';
         }
 
-        $talent_path = GUILROIM_PLUGIN_DIR . 'assets/images/talents/' . $icon . '.jpg';
+        $talent_path = GUILROIM_PLUGIN_DIR . 'assets/images/talents/' . $icon . '.webp';
         if (file_exists($talent_path)) {
-            return GUILROIM_PLUGIN_URL . 'assets/images/talents/' . rawurlencode($icon) . '.jpg';
+            return GUILROIM_PLUGIN_URL . 'assets/images/talents/' . rawurlencode($icon) . '.webp';
         }
 
         $local_path = GUILROIM_PLUGIN_DIR . 'assets/images/specializations/' . $icon . '.jpg';
@@ -3651,7 +3651,7 @@ class WoW_Guild_Roster_Character_Page
     private function get_profile_background_url(string $class_name): string
     {
         $class_slug = sanitize_title($class_name);
-        $extensions = array('jpg', 'jpeg', 'png', 'webp');
+        $extensions = array('webp', 'jpg', 'jpeg', 'png');
 
         foreach ($extensions as $extension) {
             $candidate_path = GUILROIM_PLUGIN_DIR . 'assets/images/profile-backgrounds/' . $class_slug . '.' . $extension;
@@ -3825,7 +3825,7 @@ class WoW_Guild_Roster_Character_Page
         $item_id = absint($gem['item_id'] ?? 0);
         $custom_icon = trim((string) ($gem['icon_url'] ?? ''));
         if ($custom_icon === '') {
-            $custom_icon = $this->get_custom_gem_icon_url($name);
+            $custom_icon = $this->get_custom_gem_icon_url($name, $item_id);
         }
         if ($custom_icon === '') {
             $custom_icon = $this->get_fallback_gem_icon_url((string) ($gem['color'] ?? ''), $name);
@@ -4007,14 +4007,37 @@ class WoW_Guild_Roster_Character_Page
         return $value;
     }
 
-    private function get_custom_gem_icon_url(string $name): string
+    private function get_custom_gem_icon_url(string $name, int $item_id = 0): string
     {
         $name = strtolower(trim($name));
+        $item_id = absint($item_id);
+
+        $item_id_map = array(
+            240893 => 'flawless-versatile-peridot.jpg',
+            240894 => 'flawless-versatile-peridot.jpg',
+            240901 => 'flawless-versatile-amethyst.jpg',
+            240902 => 'flawless-versatile-amethyst.jpg',
+            240909 => 'flawless-versatile-garnet.jpg',
+            240910 => 'flawless-versatile-garnet.jpg',
+            240911 => 'flawless-versatile-lapis.jpg',
+            240912 => 'flawless-versatile-lapis.jpg',
+        );
+
+        if (isset($item_id_map[$item_id])) {
+            $file_name = $item_id_map[$item_id];
+            $path = GUILROIM_PLUGIN_DIR . 'assets/images/gems/' . $file_name;
+            return file_exists($path) ? GUILROIM_PLUGIN_URL . 'assets/images/gems/' . rawurlencode($file_name) : '';
+        }
+
         if ($name === '') {
             return '';
         }
 
         $map = array(
+            'flawless versatile peridot' => 'flawless-versatile-peridot.jpg',
+            'flawless versatile lapis' => 'flawless-versatile-lapis.jpg',
+            'flawless versatile amethyst' => 'flawless-versatile-amethyst.jpg',
+            'flawless versatile garnet' => 'flawless-versatile-garnet.jpg',
             'peridot' => 'peridot.jpg',
             'lapis' => 'lapis.jpg',
             'amethyst' => 'amethyst.jpg',
@@ -4070,10 +4093,16 @@ class WoW_Guild_Roster_Character_Page
             return '';
         }
 
-        $file_name = $slug . '-small.jpg';
-        $path = GUILROIM_PLUGIN_DIR . 'assets/images/zones/' . $file_name;
+        foreach (array('webp', 'jpg', 'jpeg', 'png') as $extension) {
+            $file_name = $slug . '-small.' . $extension;
+            $path = GUILROIM_PLUGIN_DIR . 'assets/images/zones/' . $file_name;
 
-        return file_exists($path) ? GUILROIM_PLUGIN_URL . 'assets/images/zones/' . rawurlencode($file_name) : '';
+            if (file_exists($path)) {
+                return GUILROIM_PLUGIN_URL . 'assets/images/zones/' . rawurlencode($file_name);
+            }
+        }
+
+        return '';
     }
 
     private function map_socket_color(string $type, string $name): string
