@@ -5,7 +5,7 @@ Tags: guild, roster, battle.net, blizzard, gaming
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -76,6 +76,10 @@ The plugin does not load third-party tooltip scripts, remote CSS, remote JavaScr
 3. Character profile page with equipment and progression panels.
 
 == Changelog ==
+= 1.0.7 =
+- Fixed character profile specialization tabs so switching specs updates the active talent pane.
+- Added plugin documentation and bug report links to the settings screen.
+
 = 1.0.6 =
 - Added WordPress.org donate metadata.
 - Reduced bundled asset weight by converting talent icons, profile backgrounds, and zone images to smaller local WebP assets.

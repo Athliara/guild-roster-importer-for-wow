@@ -171,6 +171,17 @@ class WoW_Guild_Roster_Settings
                     <p><?php esc_html_e('Import your Battle.net guild roster, style the roster output, and generate saved display shortcodes.', 'guild-roster-importer-for-wow'); ?></p>
                 </div>
             </div>
+            <p class="wgr-admin-resource-links">
+                <a href="<?php echo esc_url(GUILROIM_PLUGIN_HELP_URL); ?>" target="_blank" rel="noopener noreferrer">
+                    <img src="<?php echo esc_url(GUILROIM_PLUGIN_INFO_ICON_URL); ?>" alt="<?php esc_attr_e('View more info', 'guild-roster-importer-for-wow'); ?>" />
+                    <?php esc_html_e('Plugin Documentation', 'guild-roster-importer-for-wow'); ?>
+                </a>
+                <span class="wgr-admin-resource-links__separator" aria-hidden="true">|</span>
+                <a href="<?php echo esc_url(GUILROIM_PLUGIN_BUG_URL); ?>" target="_blank" rel="noopener noreferrer">
+                    <img src="<?php echo esc_url(GUILROIM_PLUGIN_BUG_ICON_URL); ?>" alt="<?php esc_attr_e('Report bugs', 'guild-roster-importer-for-wow'); ?>" />
+                    <?php esc_html_e('Report Bugs', 'guild-roster-importer-for-wow'); ?>
+                </a>
+            </p>
             <form method="post" action="options.php" class="wgr-admin-form">
                 <?php settings_fields('guilroim_options_group'); ?>
                 <div class="wgr-admin-tabs" role="tablist" aria-label="<?php esc_attr_e('Guild Roster Importer for WoW settings', 'guild-roster-importer-for-wow'); ?>">

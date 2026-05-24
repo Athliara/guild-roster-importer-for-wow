@@ -43,6 +43,29 @@
     font-size: 14px;
 }
 
+.wgr-admin-resource-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 22px;
+}
+
+.wgr-admin-resource-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.wgr-admin-resource-links img {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.wgr-admin-resource-links__separator {
+    color: #9aa4b2;
+}
+
 .wgr-admin-form,
 .wgr-admin-sync-form,
 .wgr-admin-card {

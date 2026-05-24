@@ -73,6 +73,34 @@
     });
   }
 
+  function activateSpecTab(tab) {
+    const paneId = tab.getAttribute('data-wgrp-spec-tab');
+    const card = tab.closest('.wgrp-spec-card');
+    if (!paneId || !card) {
+      return;
+    }
+
+    const pane = card.querySelector('#' + escapeSelector(paneId));
+    if (!pane) {
+      return;
+    }
+
+    card.querySelectorAll('[data-wgrp-spec-tab]').forEach(function (candidate) {
+      const isActive = candidate === tab;
+      candidate.classList.toggle('is-active', isActive);
+      candidate.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    card.querySelectorAll('.wgrp-spec-pane').forEach(function (candidate) {
+      const isActive = candidate === pane;
+      candidate.classList.toggle('is-active', isActive);
+      candidate.hidden = !isActive;
+    });
+
+    schedulePositioning();
+    window.setTimeout(schedulePositioning, 80);
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', schedulePositioning);
   } else {
@@ -82,9 +110,10 @@
   window.addEventListener('load', schedulePositioning);
   window.addEventListener('resize', schedulePositioning);
   document.addEventListener('click', function (event) {
-    if (event.target.closest('[data-wgrp-spec-tab]')) {
-      schedulePositioning();
-      window.setTimeout(schedulePositioning, 80);
+    const specTab = event.target.closest('[data-wgrp-spec-tab]');
+    if (specTab) {
+      event.preventDefault();
+      activateSpecTab(specTab);
     }
   });
 

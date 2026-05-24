@@ -3,7 +3,7 @@
  * Plugin Name: Guild Roster Importer for WoW
  * Plugin URI: https://a-wd.eu/
  * Description: Displays a World of Warcraft guild roster and character profiles on WordPress using the Blizzard Battle.net API.
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: Athlios
  * Author URI: https://a-wd.eu
  * Requires at least: 6.9
@@ -18,10 +18,14 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-define('GUILROIM_PLUGIN_VERSION', '1.0.6');
+define('GUILROIM_PLUGIN_VERSION', '1.0.7');
 define('GUILROIM_PLUGIN_FILE', __FILE__);
 define('GUILROIM_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('GUILROIM_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('GUILROIM_PLUGIN_HELP_URL', 'https://github.com/Athliara/guild-roster-importer-for-wow');
+define('GUILROIM_PLUGIN_BUG_URL', 'https://github.com/Athliara/guild-roster-importer-for-wow/issues');
+define('GUILROIM_PLUGIN_INFO_ICON_URL', GUILROIM_PLUGIN_URL . 'assets/images/ic_info_outline.svg');
+define('GUILROIM_PLUGIN_BUG_ICON_URL', GUILROIM_PLUGIN_URL . 'assets/images/ic_bug_report.svg');
 
 require_once GUILROIM_PLUGIN_DIR . 'includes/class-wow-guild-roster-settings.php';
 require_once GUILROIM_PLUGIN_DIR . 'includes/class-wow-guild-roster-api.php';
@@ -33,8 +37,6 @@ require_once GUILROIM_PLUGIN_DIR . 'includes/class-wow-guild-roster-plugin.php';
 
 register_activation_hook(GUILROIM_PLUGIN_FILE, array('WoW_Guild_Roster_Plugin', 'activate'));
 register_deactivation_hook(GUILROIM_PLUGIN_FILE, array('WoW_Guild_Roster_Plugin', 'deactivate'));
-
-
 
 
 
